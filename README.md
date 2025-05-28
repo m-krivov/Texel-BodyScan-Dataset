@@ -17,10 +17,10 @@ The presented scans were collected during various events under various condition
 scans publicly available, while others choose to share only the depth maps. To structure the dataset, we divided it into a
 few parts with the following characteristics:
 
-|       | Number <br>of persons | Of which <br>men | Of which <br>women | Scans <br>per person   | Color <br>information | Total size |
-| ----- | :-------------------: | :--------------: | :----------------: | :--------------------: | :-------------------: | :--------: |
-| Part1 | 10                    | 5                | 5                  | 1                      | no                    | 200 MB     |
-| Part2 | 42                    | 3                | 39                 | 5                      | no                    | 1.16 GB    |
+|       | Number <br>of persons | Of which <br>men | Of which <br>women | Scans <br>per person   | Clothing type          | Total size |
+| ----- | :-------------------: | :--------------: | :----------------: | :--------------------: | :--------------------: | :--------: |
+| Part1 | 10                    | 5                | 5                  | 1                      | Underwear              | 200 MB     |
+| Part2 | 42                    | 3                | 39                 | 5                      | Underwear, <br/>tight  | 1.16 GB    |
 
 Depending on the part number, the 'scan' word has a slightly different meaning. In general, it may consist of a 3D body
 mesh, a SMPL/STAR parametric model fitted to it, automatic body measurements and original RGB-D frames obtained from the
@@ -28,8 +28,8 @@ depth sensor:
 
 |       | Depth maps | Color frames | Measurements                   | Portal MX                | Free Fusion              |
 | ----- | :--------: | :----------: | :----------------------------: | :----------------------: | :----------------------: |
-| Part1 | yes        | no           | ISO 8559-1                     | 3D scan + SMPL           | 3D scan + SMPL           |
-| Part2 | yes        | no           | ISO 8559-1 <br>(will be added) | SMPL <br>(will be added) | SMPL <br>(will be added) |
+| Part1 | Yes        | No           | ISO 8559-1                     | 3D scan + SMPL           | 3D scan + SMPL           |
+| Part2 | Yes        | No           | ISO 8559-1 <br>(will be added) | SMPL <br>(will be added) | SMPL <br>(will be added) |
 
 You can expect the files to be organized in the scan directory as follows:
 ```
@@ -45,10 +45,10 @@ You can expect the files to be organized in the scan directory as follows:
 │   │   |   └── measurements.csv        # Automatic body measurements
 |   |   |                                 (ISO 8559-1, some values may be omitted)
 │   │   ├── free_fusion/
-│   │   |   ├── scan.ply                # the same for FreeFusion
-│   │   |   ├── model_smpl300.json      # the same for FreeFusion
-│   │   |   ├── model_smpl300.ply       # the same for FreeFusion
-│   │   |   └── measurements.csv        # the same for FreeFusion
+│   │   |   ├── scan.ply                # The same for FreeFusion
+│   │   |   ├── model_smpl300.json      # The same for FreeFusion
+│   │   |   ├── model_smpl300.ply       # The same for FreeFusion
+│   │   |   └── measurements.csv        # The same for FreeFusion
 │   │   ├── person.scan.xml             # Full metadata
 |   |   |                                 (camera intrinsics, gender, age, clothing, etc)
 │   │   └── person.json                 # Only camera intrinsics and bounding box
@@ -72,7 +72,16 @@ these scans have coarse detail and introduce additional errors into the measurem
 ![Free Fusion](https://downloader.disk.yandex.ru/disk/41abb0530854e7823a9bce8eeb4af2af3010b25fdbb8816a82692374d9255d17/682f41b8/fKqInKw3d7bLFOeFnMGnhOU6_l-2WFAz0LCoy7G1ifUJgvwrjH_CmR4vEjQG73JFUrBpxzHrRdSpParHhzgfJ3Vaq8Q4kdFd-61CXNA7T6Kr8npumZHI4midPdWhecNq?uid=0&filename=free_fusion.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9XgokOl%2BBtEMmGnslXChVamwNUR7POM9hFSWTHrvCisWRmR/0fePyGwwW/WKW0/CEA%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=1868583&hid=87f3951185e952cf790bdb8f4f1847bc&media_type=image&tknv=v3)
 
 Depth maps and color frames from our dataset are the original records used by Free Fusion (not Portal MX!) to
-reconstruct 3D meshes. The only fix was made to the depth maps was distortion mitigation using OpenCV.
+reconstruct 3D meshes. The only fix was made is distortion mitigation using OpenCV.
+
+## Preview
+
+Free Fusion enriches the scan surface with synthetic frames from the fitted parametric model (more details in our paper),
+so the overall quality is very plausible. But please bear in mind that it is a non-rigid approach for fusing depth maps from
+a single sensor. Therefore, outliers, failed scans and distorted body proportions are our frequent guests. Especially, if a
+person was not wearing tight clothing.
+
+![Scan preview](https://downloader.disk.yandex.ru/disk/a7b15f9e178535d5396e5cde1aa077186bbc74f67bb36125c348cbb96123fc24/6837426e/fKqInKw3d7bLFOeFnMGnhEaKku0k-6Zcr-w1bVtCNx2xTZVUT21xIoXY-zn61i4pFDjGtqXN8G12dDA23jVV9i5iv3ibjo6Dyo2R4frJmTmr8npumZHI4midPdWhecNq?uid=0&filename=preview.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9S6WAZzGaJXpNo0aqWzh3hIVnlr5nWw7JUsdJaLXEFB/%2Bb3nCKLCVTJ%2BSInaOUvvHQ%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=1449537&hid=f905f01d19df5c52956316a9fc6d6b1e&media_type=image&tknv=v3)
 
 ## Direct links
 To get our dataset, you can use the following links: [Part1](https://clck.ru/3MBJSu) (140 MB),
