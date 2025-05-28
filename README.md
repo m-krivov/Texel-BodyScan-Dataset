@@ -1,4 +1,4 @@
-![LOGO](https://downloader.disk.yandex.ru/disk/8707c4793d2ca96d3ebb1d56b153dadf7b00bd7ca6018428b38ec8c875015ce9/682cdcdc/fKqInKw3d7bLFOeFnMGnhNu1lH1fCxoqUMmmvAYBWwskYp0WxpgQceQJXPDcpTOAmNM-fNKohGxDqPAcQ_fsVBtrfa8dXu5Cdd85ZbLDqoqr8npumZHI4midPdWhecNq?uid=0&filename=banner.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9XPXXal%2BbAXqbP%2BaeljPEUOWEIEwmn97q0SdDzETy6QUDqZvSgIch5AN9ddz7ydViQ%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=23348&hid=0560440144e485bf7df0768d0ff467bd&media_type=image&tknv=v3)
+![LOGO](/images/banner.png)
 
 # Texel-BodyScan-Dataset
 A dataset of 3D human body scans for non-commercial research, collected by TEXEL LLC and Lomonosov Moscow State University.
@@ -62,14 +62,14 @@ in accordance with ISO 8559-1. However, the MX scanner family has received a ser
 (new IR sensors, new platform, AI-based post-processing, etc). So, the accuracy of the presented scans may vary depending
 on the date they were recorded. If you need information about the actual models, please contact [TEXEL support](https://texel.graphics/contacts/).
 
-![Portal MX](https://downloader.disk.yandex.ru/disk/7e85fe54bfedc2196fda58ac769a3a5313786e37edcc1fa9793dec646d50099b/682f4177/fKqInKw3d7bLFOeFnMGnhJMNXgaV5YxdHYR_N8px5j-iKVF5syM3E6C_ncqET9VXHY-WI2kQGjCTeXUFTLwW-RNq3gMbp1nkeEbswxpLHJ6r8npumZHI4midPdWhecNq?uid=0&filename=portal_mx.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9TvCe5KFoxTReRiCy4X15vv7NZyn/Ch3%2BsoA4Oc3G107lsg4VIaLrfRKbQetv4dueQ%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=2254489&hid=b0742c104081087baaa83164865ce71b&media_type=image&tknv=v3)
+![Portal MX](/images/portal_mx.png)
 
 In opposite to it, Free Fusion is just an algorithm developed by TEXEL LLC in cooperation with Lomonosov Moscow State
 University. It produces the same data (3D mesh, fitted SMPL, body measurements) using only one RGB-D ToF sensor. In
 addition, the person being scanned can move freely, which greatly simplifies the scanning process. On the other hand,
 these scans have coarse detail and introduce additional errors into the measurements.
 
-![Free Fusion](https://downloader.disk.yandex.ru/disk/41abb0530854e7823a9bce8eeb4af2af3010b25fdbb8816a82692374d9255d17/682f41b8/fKqInKw3d7bLFOeFnMGnhOU6_l-2WFAz0LCoy7G1ifUJgvwrjH_CmR4vEjQG73JFUrBpxzHrRdSpParHhzgfJ3Vaq8Q4kdFd-61CXNA7T6Kr8npumZHI4midPdWhecNq?uid=0&filename=free_fusion.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9XgokOl%2BBtEMmGnslXChVamwNUR7POM9hFSWTHrvCisWRmR/0fePyGwwW/WKW0/CEA%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=1868583&hid=87f3951185e952cf790bdb8f4f1847bc&media_type=image&tknv=v3)
+![Free Fusion](/images/free_fusion.png)
 
 Depth maps and color frames from our dataset are the original records used by Free Fusion (not Portal MX!) to
 reconstruct 3D meshes. The only fix was made is distortion mitigation using OpenCV.
@@ -81,11 +81,11 @@ so the overall quality is very plausible. But please bear in mind that it is a n
 a single sensor. Therefore, outliers, failed scans and distorted body proportions are our frequent guests. Especially, if a
 person was not wearing tight clothing.
 
-![Scan preview](https://downloader.disk.yandex.ru/disk/a7b15f9e178535d5396e5cde1aa077186bbc74f67bb36125c348cbb96123fc24/6837426e/fKqInKw3d7bLFOeFnMGnhEaKku0k-6Zcr-w1bVtCNx2xTZVUT21xIoXY-zn61i4pFDjGtqXN8G12dDA23jVV9i5iv3ibjo6Dyo2R4frJmTmr8npumZHI4midPdWhecNq?uid=0&filename=preview.png&disposition=attachment&hash=uJHtLgPRVpznwVrLVDKp9S6WAZzGaJXpNo0aqWzh3hIVnlr5nWw7JUsdJaLXEFB/%2Bb3nCKLCVTJ%2BSInaOUvvHQ%3D%3D%3A&limit=0&content_type=image%2Fpng&owner_uid=1130000067001764&fsize=1449537&hid=f905f01d19df5c52956316a9fc6d6b1e&media_type=image&tknv=v3)
+![Scan preview](/images/preview.png)
 
 ## Direct links
-To get our dataset, you can use the following links: [Part1](https://clck.ru/3MBJSu) (140 MB),
-[Part2](https://clck.ru/3MCUYh) (935 MB). Since we are going to append new scans from time to time,
+To get our dataset, you can use the following links: [Part1](https://disk.yandex.ru/d/5R57d5509rP7jQ) (140 MB),
+[Part2](https://disk.yandex.ru/d/aXTJ1eoJYbJngA) (935 MB). Since we are going to append new scans from time to time,
 these direct links may become invalid. If this happens, visit our repo for the new ones.
 
 ## License
