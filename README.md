@@ -8,7 +8,7 @@ with thousands of these body scans.
 ## Possible use cases
 
 * 3D human scans to enrich other datasets (take a look at [THUman2.1](https://github.com/ytrock/THuman2.0-Dataset))
-* Additional RGB-D frames for tuning your full body scanning algorithm
+* Additional RGB-D recordings for tuning your full body scanning algorithm
 * Data to train your ML models (photo to 3D mesh, photo to body measurements, etc)
 
 ## Structure
@@ -71,7 +71,7 @@ these scans have coarse detail and introduce additional errors into the measurem
 
 ![Free Fusion](/images/free_fusion.png)
 
-Depth maps and color frames from our dataset are the original records used by Free Fusion (not Portal MX!) to
+Depth maps and color frames are the original recordings from Azure Kinect, used by Free Fusion (not Portal MX!) to
 reconstruct 3D meshes. The only fix was made is distortion mitigation using OpenCV.
 
 ## Preview
@@ -82,6 +82,43 @@ a single sensor. Therefore, outliers, failed scans and distorted body proportion
 person was not wearing tight clothing.
 
 ![Scan preview](/images/preview.png)
+
+## Utilities
+
+Files with the `*.scan.xml` extension contain information about depth maps, color frames and annotations for a single RGB-D
+recording. Our `IterateScans` utility allows you to traverse some directory and print all available information about this
+raw data, which is sufficient for reconstructing a 3D scan using Free Fusion. To compile `IterateScans` in your home directory,
+you could use `git`, `cmake`, 'make' and `g++` like this:
+
+```bash
+git clone https://github.com/m-krivov/Texel-BodyScan-Dataset.git ~/texel_bodyscan_dataset
+cd ~/texel_bodyscan_dataset
+git submodule init
+git submodule update
+cmake -S ./ -B ./build
+make -C ./build
+./bin/IterateScans <directory_with_scans>
+```
+
+Currently, `IterateScans` ignores presence of 3D meshes and body measurements, but we plan to fix it in future updates. The
+output might look like the follows. Feel free to adapt this utility to your needs.
+
+```
+./bin/IterateScans Samples
+
+'Samples_Fedyukov_Maxim':
+  Maxim Fedyukov (male): adult person
+  Appearance: short haircut, almost naked, barefoot or in socks
+  Free Fusion (Azure Kinect DK): depth 960x864 (369 frames), no color frames, indoor
+
+
+'Samples_Krivov_Maxim':
+  Maxim Krivov (male): adult person, 35 years old, 178 cm, 58 kg
+  Appearance: short haircut, outerwear, flat boots
+  Free Fusion (Azure Kinect DK): depth 960x864 (229 frames), color 2048x1536 (230 frames), indoor
+
+Found information about 2 scans (2 men, 0 women)
+```
 
 ## Direct links
 To get our dataset, you can use the following links: [Part1](https://disk.yandex.ru/d/5R57d5509rP7jQ) (140 MB),
