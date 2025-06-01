@@ -71,8 +71,7 @@ void ProcessScan(const scan_finder::ScanInfo &info) {
     }
 
     if (stream.HasColor(camera, frame_dir)) {
-      std::cout << ",";
-      std::cout << "color " << camera.Width() << "x" << camera.Height()
+      std::cout << ", color " << camera.Width() << "x" << camera.Height()
                 << " (" << CountFiles(frame_dir, ".jpg") << " frames)";
     }
     else {

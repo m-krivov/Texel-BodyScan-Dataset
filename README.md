@@ -88,7 +88,7 @@ person was not wearing tight clothing.
 Files with the `*.scan.xml` extension contain information about depth maps, color frames and annotations for a single RGB-D
 recording. Our `IterateScans` utility allows you to traverse some directory and print all available information about this
 raw data, which is sufficient for reconstructing a 3D scan using Free Fusion. To compile `IterateScans` in your home directory,
-you could use `git`, `cmake`, 'make' and `g++` like this:
+you could use `git`, `cmake`, `make` and `g++` like this:
 
 ```bash
 git clone https://github.com/m-krivov/Texel-BodyScan-Dataset.git ~/texel_bodyscan_dataset
